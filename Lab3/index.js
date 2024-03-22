@@ -45,8 +45,14 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var _this = this;
+<<<<<<<<< Temporary merge branch 1
+var shuffle = function (data) {
+    var _a;
+    // Trộn mảng sử dụng thuật toán Fisher-Yates
+=========
 var tronPkm = function (data) {
     var _a;
+>>>>>>>>> Temporary merge branch 2
     for (var i = data.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
         _a = [data[j], data[i]], data[i] = _a[0], data[j] = _a[1];
@@ -63,20 +69,24 @@ var show = function (data) {
         APP.innerHTML = html_1;
     }
 };
+<<<<<<<<< Temporary merge branch 1
+var pokemonCount = 12; // Số lượng cặp Pokémon (cần lấy 24 con và 14 cặp giống nhau)
+=========
 var pokemonCount = 12;
+>>>>>>>>> Temporary merge branch 2
 function fetchDuplicatePokemons(count) {
     return __awaiter(this, void 0, void 0, function () {
-        var pokemons, idPoke, randomId, data, pokemon;
+        var pokemons, seenIds, randomId, data, pokemon;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     pokemons = [];
-                    idPoke = new Set();
+                    seenIds = new Set();
                     _a.label = 1;
                 case 1:
                     if (!(pokemons.length < count * 2)) return [3 /*break*/, 4];
                     randomId = Math.floor(Math.random() * 1000) + 1;
-                    if (!!idPoke.has(randomId)) return [3 /*break*/, 3];
+                    if (!!seenIds.has(randomId)) return [3 /*break*/, 3];
                     return [4 /*yield*/, apiPokemon("https://pokeapi.co/api/v2/pokemon/".concat(randomId, "/"))];
                 case 2:
                     data = _a.sent();
@@ -84,6 +94,12 @@ function fetchDuplicatePokemons(count) {
                         id: data.id,
                         name: data.name,
                         image: data.sprites.front_default,
+<<<<<<<<< Temporary merge branch 1
+                        type: data.types[0].type.name, // Lấy loại đầu tiên của Pokémon
+                    };
+                    pokemons.push(pokemon);
+                    pokemons.push(pokemon); // Thêm Pokémon vào danh sách 2 lần để tạo thành cặp giống nhau
+=========
                         type: data.types[0].type.name,
                     };
                     pokemons.push(pokemon);
@@ -111,18 +127,108 @@ function apiPokemon(url) {
     });
 }
 (function () { return __awaiter(_this, void 0, void 0, function () {
+<<<<<<<<< Temporary merge branch 1
+    var pokemons, shuffledPokemons;
+=========
     var pokemons, tronPokemons;
+>>>>>>>>> Temporary merge branch 2
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, fetchDuplicatePokemons(pokemonCount)];
             case 1:
                 pokemons = _a.sent();
+<<<<<<<<< Temporary merge branch 1
+                shuffledPokemons = shuffle(pokemons);
+                show(shuffledPokemons);
+=========
                 tronPokemons = tronPkm(pokemons);
                 show(tronPokemons);
+>>>>>>>>> Temporary merge branch 2
                 return [2 /*return*/];
         }
     });
 }); })();
+<<<<<<<<< Temporary merge branch 1
+/// viet mmot ham tinh so chan
+// gia tri truyen vao la 1 so nguyen bat ky
+var f_name = function (num) {
+    return num % 2 === 0 ? true : false;
+};
+// console.log(f_name(2));
+var number = 0;
+// number = f_name(2);
+// if(f_name(2)){
+// }
+var sum = function (x, y) {
+    return x + y;
+};
+var print0utput = function (output) {
+    // khong co gia tri tra ve thi do la void void khong duoc gan bien let name= print0put
+    return "heloo" + output;
+    // da gan cho gia tri tra ve la string "heloo"
+};
+//let heloo : string = print0output("2") string tra ve la string thi gan vao cung la string
+console.log(sum(5, 7));
+console.log(print0utput("string"));
+console.log(print0utput(2));
+var heloo = function (msg) {
+    if (msg === void 0) { msg = "world"; }
+    return "hello ".concat(msg);
+};
+console.log(heloo());
+console.log(heloo("hello"));
+// 1 Arrow function
+//Tạo một arrow function đơn giản để nhân đôi một số.
+//So sánh cách viết arrow function với function thông thường trong TypeScript.
+var nhandoi = function (a) {
+    return a * 2;
+};
+console.log(nhandoi(8));
+function nhandoi2(b) {
+    return b * 2;
+}
+console.log(nhandoi2(8));
+// 2 Function return
+//Viết một hàm trả về tổng của hai số được truyền vào.
+//Tạo một hàm trả về một chuỗi được đảo ngược.
+function sum(a, b) {
+    return a + b;
+}
+console.log(sum(2, 3));
+function reverseString(a) {
+    return a.split("").reverse().join("");
+}
+console.log(reverseString("phuoc hoc truong f"));
+var numm = function (num, num2) {
+    return num + num2 + 2;
+};
+console.log(numm(2, 4));
+// 5 Default parameter
+// Tạo một hàm có một tham số mặc định và trả về bình phương của tham số đó.4
+// Sử dụng giá trị mặc định cho một tham số trong hàm tính tổng của hai số.
+var sqr = function (number) {
+    if (number === void 0) { number = 0; }
+    return number * number;
+};
+console.log(sqr(3));
+function sum($a, $b) {
+    if ($b === void 0) { $b = 0; }
+    return $a + $b;
+}
+console.log(6, 8);
+// 6 Optional parameter
+// Viết một hàm có một tham số tùy chọn và trả về giá trị của tham số đó nếu được cung cấp, ngược lại trả về giá trị mặc định.
+function parameter($value) {
+    if ($value === void 0) { $value = "Gia tri mac dinh"; }
+    return $value;
+}
+// console.log(parameter);
+console.log("gia tri moi");
+// 7 Spread operators
+// Sử dụng toán tử spread để truyền một mảng các số vào một hàm tính tổng.
+// 8 Rest parameter
+//Viết một hàm nhận một số lượng biến đối số không xác định, sau đó tính tổng của chúng.
+=========
 // Ham tinh so chan
 // Gia tri truyen vao la 1 so nguyen bat ky
 var aaa = function (num) {
@@ -184,6 +290,7 @@ function parameter($value) {
 }
 console.log("Gia tri moi");
 // Rest Parameter
+>>>>>>>>> Temporary merge branch 2
 var tong = function () {
     var args = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -192,8 +299,18 @@ var tong = function () {
     return args.reduce(function (acc, curr) { return acc + curr; }, 0);
 };
 console.log(tong(5, 10, 15));
+<<<<<<<<< Temporary merge branch 1
+// 9 Function & void
+//Tạo một hàm không trả về giá trị nào (void) nhưng in ra một thông báo ra console.
+//Viết một hàm không nhận bất kỳ tham số nào và không trả về giá trị.
+// const  trave= () => {
+//     console.log("hihi");
+// }
+// trave();
+=========
 // Function & void
 var a = function () {
     console.log("hahahaha");
 };
 a();
+>>>>>>>>> Temporary merge branch 2
