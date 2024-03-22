@@ -66,11 +66,11 @@ const pokemonCount: number = 12;
 
 async function fetchDuplicatePokemons(count: number): Promise<Pokemon[]> {
     const pokemons: Pokemon[] = [];
-    const seenIds = new Set<number>();
+    const idPoke = new Set<number>();
 
     while (pokemons.length < count * 2) {
         const randomId = Math.floor(Math.random() * 1000) + 1;
-        if (!seenIds.has(randomId)) {
+        if (!idPoke.has(randomId)) {
             const data: any = await apiPokemon(
                 `https://pokeapi.co/api/v2/pokemon/${randomId}/`
             );
@@ -82,7 +82,7 @@ async function fetchDuplicatePokemons(count: number): Promise<Pokemon[]> {
             };
             pokemons.push(pokemon);
             pokemons.push(pokemon);
-            seenIds.add(randomId);
+            idPoke.add(randomId);
         }
     }
     return pokemons;

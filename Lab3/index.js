@@ -66,17 +66,17 @@ var show = function (data) {
 var pokemonCount = 12;
 function fetchDuplicatePokemons(count) {
     return __awaiter(this, void 0, void 0, function () {
-        var pokemons, seenIds, randomId, data, pokemon;
+        var pokemons, idPoke, randomId, data, pokemon;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     pokemons = [];
-                    seenIds = new Set();
+                    idPoke = new Set();
                     _a.label = 1;
                 case 1:
                     if (!(pokemons.length < count * 2)) return [3 /*break*/, 4];
                     randomId = Math.floor(Math.random() * 1000) + 1;
-                    if (!!seenIds.has(randomId)) return [3 /*break*/, 3];
+                    if (!!idPoke.has(randomId)) return [3 /*break*/, 3];
                     return [4 /*yield*/, apiPokemon("https://pokeapi.co/api/v2/pokemon/".concat(randomId, "/"))];
                 case 2:
                     data = _a.sent();
@@ -88,7 +88,7 @@ function fetchDuplicatePokemons(count) {
                     };
                     pokemons.push(pokemon);
                     pokemons.push(pokemon);
-                    seenIds.add(randomId);
+                    idPoke.add(randomId);
                     _a.label = 3;
                 case 3: return [3 /*break*/, 1];
                 case 4: return [2 /*return*/, pokemons];
