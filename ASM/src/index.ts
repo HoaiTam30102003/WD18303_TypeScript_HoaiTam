@@ -158,23 +158,23 @@ const countdown = () => {
 let AddUser = (form: string) => {
     console.log(form);
     const nameInput: any = document.getElementById("name");
-    const nameError: any = document.getElementById("nameError");
+    const errorName: any = document.getElementById("errorName");
     let isValid = true;
     let nameValid = (value: string) => {
         const regex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
         return regex.test(value);
     }
     if (nameInput.value.trim() === "") {
-        nameError.textContent = "Vui lòng nhập tên người chơi vào đây !";
+        errorName.textContent = "Vui lòng nhập tên người chơi vào đây !";
         isValid = false;
     } else if (nameValid(nameInput.value)) {
-        nameError.textContent = "Vui lòng không nhập kí tự đặc biệt vào đây !";
+        errorName.textContent = "Vui lòng không nhập kí tự đặc biệt vào đây !";
         isValid = false;
     } else if (nameInput.value.length === 1) {
-        nameError.textContent = "Vui lòng nhập trên 1 kí tự !";
+        errorName.textContent = "Vui lòng nhập trên 1 kí tự !";
         isValid = false;
     } else {
-        nameError.textContent = "";
+        errorName.textContent = "";
     }
     if (isValid == true) {
         countdown();

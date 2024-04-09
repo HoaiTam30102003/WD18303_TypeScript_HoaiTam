@@ -113,7 +113,7 @@ var showPKM = function () {
                 var APP = document.getElementById("app");
                 var html_1 = "";
                 doubleDataPokemon.forEach(function (pkm) {
-                    html_1 += "\n                        <div class=\"col-1\">\n                            <div class=\"card mb-3 p-1 shadow border border-dark position-relative\" id=\"pokemon-card-".concat(pkm.id, "\">\n                                <span class=\" rounded position-absolute top-0\">#$").concat(pkm.id, "</span>\n                                <img src=\"").concat(pkm.image, "\" alt=\"").concat(pkm.name, "\">\n                            </div>\n                        </div>\n                    ");
+                    html_1 += "\n                        <div class=\"col-1\">\n                            <div class=\"card mb-3 p-1 shadow border border-dark position-relative\" id=\"pokemon-card-".concat(pkm.id, "\">\n                                <span class=\" rounded position-absolute top-0\">").concat(pkm.id, "</span>\n                                <img src=\"").concat(pkm.image, "\" alt=\"").concat(pkm.name, "\">\n                            </div>\n                        </div>\n                    ");
                 });
                 APP === null || APP === void 0 ? void 0 : APP.innerHTML = html_1;
                 TinhDiem();
@@ -201,26 +201,26 @@ var countdown = function () {
 var AddUser = function (form) {
     console.log(form);
     var nameInput = document.getElementById("name");
-    var nameError = document.getElementById("nameError");
+    var errorName = document.getElementById("errorName");
     var isValid = true;
     var nameValid = function (value) {
         var regex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
         return regex.test(value);
     };
     if (nameInput.value.trim() === "") {
-        nameError.textContent = "Vui lòng nhập tên người chơi vào đây !";
+        errorName.textContent = "Vui lòng nhập tên người chơi vào đây !";
         isValid = false;
     }
     else if (nameValid(nameInput.value)) {
-        nameError.textContent = "Vui lòng không nhập kí tự đặc biệt vào đây !";
+        errorName.textContent = "Vui lòng không nhập kí tự đặc biệt vào đây !";
         isValid = false;
     }
     else if (nameInput.value.length === 1) {
-        nameError.textContent = "Vui lòng nhập trên 1 kí tự !";
+        errorName.textContent = "Vui lòng nhập trên 1 kí tự !";
         isValid = false;
     }
     else {
-        nameError.textContent = "";
+        errorName.textContent = "";
     }
     if (isValid == true) {
         countdown();
